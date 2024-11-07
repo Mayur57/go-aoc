@@ -160,7 +160,7 @@ func (c *MDXConverter) Convert(r io.Reader) (string, error) {
     return strings.TrimSpace(c.buffer.String()), nil
 }
 
-func main() {
+func HTML2MDX() {
     inputFile := flag.String("input", "article.html", "Input HTML file path")
     outputFile := flag.String("output", "output.mdx", "Output MDX file path")
     flag.Parse()
@@ -185,5 +185,6 @@ func main() {
         os.Exit(1)
     }
 
+    os.Remove(*inputFile)
     fmt.Printf("Successfully converted %s to %s\n", *inputFile, *outputFile)
 }
